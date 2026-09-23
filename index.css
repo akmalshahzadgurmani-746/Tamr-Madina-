@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-ink;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #EDE0CD;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #B89A61;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9C8049;
+  }
+
+  a,
+  button {
+    @apply outline-gold;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-gold;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-4 sm:px-8 lg:px-10;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-olive px-7 py-3.5
+      text-sm font-medium tracking-wide text-cream transition-all duration-300
+      hover:bg-olive-light active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-olive/30 bg-transparent px-7 py-3.5
+      text-sm font-medium tracking-wide text-olive transition-all duration-300
+      hover:border-olive hover:bg-olive hover:text-cream active:scale-[0.98];
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-6 py-3
+      text-sm font-medium tracking-wide text-ink transition-all duration-300
+      hover:bg-gold-dark active:scale-[0.98];
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[12px] sm:text-[13px] font-semibold tracking-[0.2em] uppercase text-gold-dark;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 sm:w-8 bg-gold;
+  }
+}
